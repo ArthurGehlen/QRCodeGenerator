@@ -1,0 +1,142 @@
+:root {
+    --body_bg_color: #DCE0E6;
+    --body_padding: 2rem;
+
+    --title_font_color: #1F1F20;
+    --title_font_size: clamp(3rem, 5vw + 1rem, 6rem);
+    --title_letter_spacing: .8rem;
+    --title_font_weight: 400;
+
+    --input_bg_color: #606D80;
+    --input_border: 2px solid #2B4C7E;
+    --input_boder_radius: 10px;
+    --input_font_size: 1rem;
+
+    --input_button_font_color: #DCE0E6;
+
+    --buttons_bg_color: #2B4C7E;
+    --buttons_font_color: #DCE0E6;
+    --buttons_bg_color_HOVER: #567EBB;
+    --buttons_font_size: 1.2rem;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body_bg_color);
+    padding: var(--body_padding);
+}
+
+main {
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mid_page {
+    height: 95%;
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+        "form form form qrcode qrcode"
+        "form form form qrcode qrcode";
+}
+
+h1 {
+    color: var(--title_font_color);
+    letter-spacing: var(--title_letter_spacing);
+    font-size: var(--title_font_size);
+    font-weight: var(--title_font_weight);
+}
+
+form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+form .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.qrcode_area {
+    grid-area: qrcode;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form input,
+button {
+    padding: .8rem .6rem;
+    border-radius: var(--input_boder_radius);
+    color: var(--input_button_font_color);
+}
+
+form input[type="text"] {
+    width: 100%;
+    border: var(--input_border);
+    background-color: var(--input_bg_color);
+    font-size: var(--input_font_size);
+}
+
+form input[type="text"]::placeholder {
+    color: var(--input_button_font_color);
+    opacity: 50%;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+}
+
+form input[type="submit"],
+button {
+    border: none;
+    background-color: var(--buttons_bg_color);
+    transition: .4s;
+    cursor: pointer;
+    width: 40%;
+    padding: 1rem 0;
+    font-size: var(--buttons_font_size);
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background-color: var(--buttons_bg_color_HOVER);
+}
+
+@media (max-width: 768px) {
+
+    h1 .qrcode,
+    h1 .generator {
+        display: block;
+    }
+
+    h1 .qrcode {
+        margin-bottom: 0.5rem;
+    }
+
+    .mid_page {
+        grid-template-areas:
+            "form form"
+            "form form"
+            "qrcode qrcode"
+            "qrcode qrcode";
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .buttons input, button {
+        width: 100% !important;
+        color: #2323bd;
+    }
+}
