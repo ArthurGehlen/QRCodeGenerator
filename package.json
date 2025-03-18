@@ -8,10 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "homepage": "https://arthurgehlen.github.io/QRCodeGenerator/",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://arthurgehlen.github.io/QRCodeGenerator/",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
