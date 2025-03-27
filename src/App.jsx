@@ -5,7 +5,7 @@ const api_token = import.meta.env.VITE_API_TOKEN
 
 function App() {
   const [qrCodeText, setQrCodeText] = useState('')
-  const [qrCodeColor, setQrCodeColor] = useState('')
+  const [qrCodeColor, setQrCodeColor] = useState('000000')
   const [qrCodeLabel, setQrCodeLabel] = useState('')
   const [qrCodeImage, setQrCodeImage] = useState('')
 
@@ -49,7 +49,7 @@ function App() {
             <input
               type="text"
               placeholder="Cor do QR Code em hexadecimal. Exemplo:000000 (opcional)"
-              maxLength="8"
+              maxLength="6"
               pattern="[A-Fa-f0-9]{3}{1,2}"
               onChange={(e) => setQrCodeColor(e.target.value)}
             />
